@@ -8,14 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 <style>
     :root {
-        --primary-color: #2c3e50; /* Dark Blue */
-        --secondary-color: #3498db; /* Bright Blue */
-        --accent-color: #e74c3c; /* Reddish Accent */
-        --light-color: #ecf0f1; /* Light Gray */
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
         --dark-color: #222;
         --text-color: #333;
-        --gradient-start: #3a7bd5; /* Professional Blue Gradient Start */
-        --gradient-end: #00d2ff;   /* Professional Blue Gradient End */
+        --gradient-start: #3a7bd5;
+        --gradient-end: #00d2ff;
         --card-bg: #ffffff;
         --shadow: 0 10px 20px rgba(13, 12, 12, 0.1);
         --border-radius: 8px;
@@ -159,6 +159,7 @@
         color: white;
         cursor: pointer;
         transition: transform 0.3s ease;
+        padding: 10px;
     }
 
     .menu-toggle:hover {
@@ -172,7 +173,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding-top: 80px;
+        padding: 80px 20px 40px;
         background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
         color: white;
         position: relative;
@@ -194,6 +195,7 @@
         position: relative;
         z-index: 1;
         animation: fadeIn 1s ease-out;
+        padding: 20px;
     }
 
     #hero h1 {
@@ -217,6 +219,7 @@
         justify-content: center;
         gap: 20px;
         animation: fadeInUp 1.5s ease-out;
+        flex-wrap: wrap;
     }
 
     .cta-button {
@@ -229,6 +232,7 @@
         transition: all 0.3s ease;
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         border: 2px solid transparent;
+        white-space: nowrap;
     }
 
     .cta-button:hover {
@@ -250,7 +254,7 @@
 
     /* Section Styling */
     section {
-        padding: 100px 0;
+        padding: 80px 0;
         position: relative;
     }
 
@@ -1122,29 +1126,55 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 1200px) {
+        .container {
+            width: 95%;
+        }
+        
+        #hero h1 {
+            font-size: 3rem;
+        }
+        
+        #hero p {
+            font-size: 1.2rem;
+        }
+    }
+
     @media (max-width: 992px) {
         #about .about-content {
             flex-direction: column;
             text-align: center;
         }
+        
         #about .profile-pic-container {
             margin-bottom: 30px;
         }
+        
         .contact-content {
             flex-direction: column;
         }
+        
         .contact-form-container {
             margin-top: 30px;
             width: 100%;
+        }
+        
+        .timeline-item {
+            padding-left: 30px;
+            padding-right: 30px;
         }
     }
 
     @media (max-width: 768px) {
         h1 { font-size: 2.2rem; }
-        #hero h1 { font-size: 2.8rem; }
+        #hero h1 { font-size: 2.5rem; }
         #hero p { font-size: 1.1rem; }
         h2, .section-title { font-size: 1.8rem; }
         h3 { font-size: 1.3rem; }
+        
+        section {
+            padding: 60px 0;
+        }
 
         nav ul {
             display: none;
@@ -1158,13 +1188,17 @@
             border-radius: 0 0 10px 10px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
+        
         nav ul.active {
             display: flex;
         }
+        
         nav ul li {
             margin: 10px 0;
             text-align: center;
+            margin-left: 0;
         }
+        
         .menu-toggle {
             display: block;
         }
@@ -1172,14 +1206,17 @@
         .timeline::after {
             left: 20px;
         }
+        
         .timeline-item {
             width: 100%;
             padding-left: 50px;
             padding-right: 10px;
         }
+        
         .timeline-item.left, .timeline-item.right {
             left: 0%;
         }
+        
         .timeline-item::after {
             left: 11px;
         }
@@ -1203,26 +1240,60 @@
             width: 280px;
             height: 280px;
         }
-    }
-
-    @media (max-width: 480px) {
-        #hero h1 { font-size: 2.2rem; }
-        .container { width: 95%; }
-        #skills .skills-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        }
-        .project-card {
-            margin-bottom: 20px;
-        }
+        
         .education-item {
             padding: 30px 20px;
         }
+        
         .contact-info-item {
             font-size: 1rem;
         }
+        
         .contact-form-container h3,
         .contact-info h3 {
             font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        #hero h1 { font-size: 2rem; }
+        #hero p { font-size: 1rem; }
+        
+        .container {
+            width: 95%;
+        }
+        
+        #skills .skills-grid {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-item {
+            padding: 15px 10px;
+        }
+        
+        .skill-item i {
+            font-size: 2.2rem;
+        }
+        
+        .skill-item h4 {
+            font-size: 1rem;
+        }
+        
+        .project-card {
+            margin-bottom: 20px;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .contact-info {
+            padding: 20px;
+        }
+        
+        .contact-form-container {
+            padding: 20px;
         }
         
         #about .profile-pic {
@@ -1238,6 +1309,84 @@
         .profile-pic-container::after {
             width: 240px;
             height: 240px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+        }
+        
+        .education-item {
+            padding: 25px 15px;
+        }
+        
+        .university-logo {
+            width: 90px;
+            height: 90px;
+        }
+        
+        .education-item h3 {
+            font-size: 1.4rem;
+        }
+        
+        .education-detail {
+            font-size: 0.95rem;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        #hero h1 { font-size: 1.8rem; }
+        
+        .section-title {
+            font-size: 1.8rem;
+        }
+        
+        .section-title::after {
+            width: 60px;
+            height: 3px;
+        }
+        
+        #projects .projects-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .skill-item {
+            padding: 12px 8px;
+        }
+        
+        .skill-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .skill-item h4 {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info-item {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info-item i {
+            font-size: 1.2rem;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        
+        .social-links-contact a {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+        
+        #contact-form input,
+        #contact-form textarea {
+            padding: 12px 14px;
+        }
+        
+        #contact-form button {
+            padding: 14px;
+            font-size: 1rem;
         }
     }
 </style>
@@ -1270,7 +1419,7 @@
                 <p class="hero-description">Passionate about Software Engineering, Embedded Systems, and creating innovative solutions through code.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="cta-button">Get In Touch</a>
-                    <a href="pdf/resume.pdf" class="cta-button" target="_blank" rel="noopener noreferrer">Download CV</a>
+                    <a href="pdf/resume.pdf" class="cta-button secondary" target="_blank" rel="noopener noreferrer">Download CV</a>
                 </div>
             </div>
         </div>
@@ -1287,7 +1436,7 @@
                 <p>My expertise spans Data Structures, Algorithms (DSA), Object-Oriented Programming (OOP), and I am passionate about solving real-world challenges through innovative projects. I thrive in collaborative environments and am always eager to learn and apply new technologies.</p>
                 <div class="hero-buttons" style="justify-content: flex-start; margin-top: 20px;">
                     <a href="#skills" class="cta-button" style="padding: 10px 20px;">View Skills</a>
-                    <a href="#projects" class="cta-button" style="padding: 10px 20px;">See Projects</a>
+                    <a href="#projects" class="cta-button secondary" style="padding: 10px 20px;">See Projects</a>
                 </div>
             </div>
         </div>
